@@ -38,10 +38,13 @@ class Game{
         if(futureX + this.theHero.width >= obs.x && futureX <= obs.x + obs.width 
             && futureY + this.theHero.height >= obs.y && futureY <= obs.y + obs.height){
                 canMove = false
+                score-=300;
+                document.querySelector("body > div:nth-child(1) > span").innerText= score
                 //alert("game over");
              }
         })
-       
+        score+=30;
+        document.querySelector("body > div:nth-child(1) > span").innerText= score
         return canMove;
     }
 }
@@ -92,7 +95,7 @@ function mainLoop(){
         theGame.spawnObstacle()
     }
 
-
+    
     requestAnimationFrame(mainLoop);
 }
 
@@ -195,6 +198,13 @@ class Obstacle{
     }
 
 }
+let score = 0
+// let scoreTime = setInterval(()=>{
+//     score+=5
+//     document.querySelector("body > div:nth-child(1) > span").innerText= score
+
+// },1000)
+
 
 document.getElementById('start-button').onclick = startGame;
 
@@ -202,8 +212,13 @@ document.getElementById('start-button').onclick = startGame;
 let theGame;
 
 function startGame(){    
-     theGame = new Game();
+    theGame = new Game();
+    
+    score = 0;
+    document.querySelector("body > div:nth-child(1) > span").innerText= score
     mainLoop();
+    
 }
+
 
 function scoredown(){}

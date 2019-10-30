@@ -50,4 +50,10 @@ body button {
     background-size: contain;
 
 }
+#score{
+  border-radius: 3px;
+  border: 1px solid black;
+  width: 100px;
+  height: 40px;
+}
 
