@@ -4,7 +4,7 @@ const ctx = document.getElementById("example").getContext('2d');
   
 class Game{
     constructor(){
-        this.theHero = new Hero(180, 380, 20,20),
+        this.theHero = new Hero(180, 380, 40,50),
         this.obstacleArray = []
     }
 
@@ -37,7 +37,8 @@ class Game{
            
         if(futureX + this.theHero.width >= obs.x && futureX <= obs.x + obs.width 
             && futureY + this.theHero.height >= obs.y && futureY <= obs.y + obs.height){
-                canMove = false;
+                canMove = false
+                //alert("game over");
              }
         })
        
@@ -68,7 +69,7 @@ function drawSelf(u, obs){
         ctx.fillStyle = 'tomato'
         ctx.fillRect(u.x, u.y, u.width, u.height)
     } else{
-        ctx.drawImage(carImg, u.x, u.y, 50, 50);
+        ctx.drawImage(carImg, u.x, u.y, u.width, u.height);
     }
     //ctx.fillRect(u.x, u.y, u.width, u.height)
 }
@@ -128,22 +129,22 @@ document.onkeydown = function(e){
 
  
 
-    if(e.key === "ArrowUp"){
-        if(
-            theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y -speed)
-        ){
-            theGame.theHero.move(theGame.theHero.x, theGame.theHero.y -speed)
-        }
+    // if(e.key === "ArrowUp"){
+    //     if(
+    //         theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y -speed)
+    //     ){
+    //         theGame.theHero.move(theGame.theHero.x, theGame.theHero.y -speed)
+    //     }
 
-    }
-    if(e.key === "ArrowDown"){
-        if(
-            theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y +speed)
-        ){
-            theGame.theHero.move(theGame.theHero.x, theGame.theHero.y +speed)
-        }
+    // }
+    // if(e.key === "ArrowDown"){
+    //     if(
+    //         theGame.collisionDetect(theGame.theHero.x, theGame.theHero.y +speed)
+    //     ){
+    //         theGame.theHero.move(theGame.theHero.x, theGame.theHero.y +speed)
+    //     }
        
-    }
+    // }
     if(e.key === "ArrowLeft"){
         if(
             theGame.collisionDetect(theGame.theHero.x - speed, theGame.theHero.y)
@@ -204,3 +205,5 @@ function startGame(){
      theGame = new Game();
     mainLoop();
 }
+
+function scoredown(){}
