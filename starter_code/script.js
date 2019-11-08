@@ -7,6 +7,7 @@ class Game{
         this.theHero = new Hero(180, 380, 40,50),
         this.obstacleArray = []
     }
+    //grace is really here at 6
 
     spawnObstacle(){
         let rX = Math.floor(Math.random() * 400);
